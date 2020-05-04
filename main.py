@@ -69,20 +69,20 @@ def get_original_message_form_inverse_code(list_of_bits):
 def is_message_broken(list_of_bits):
     original_list = []
     inverse_list = []
-    state = False
+    state = True
     for i in range(int(len(list_of_bits) / 2)):
         original_list.append(list_of_bits[i])
         inverse_list.append(list_of_bits[int(len(list_of_bits) / 2) + i])
     if check_if_even(number):
         for i in range(int(len(original_list))):
             if original_list[i] == inverse(inverse_list):
-                state = True
+                return True
             else:
                 state = False
     else:
         for i in range(int(len(original_list))):
             if original_list[i] == inverse_list:
-                state = True
+                return True
             else:
                 state = False
     return state
